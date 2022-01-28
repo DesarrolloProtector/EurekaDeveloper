@@ -1,0 +1,38 @@
+﻿
+@model ModalHelp.Models.Module_Model
+
+<div class="fila_modulo_@Model.Module.Id" label-grid="row" tgcolumns="row">
+    <div class="alingVcenter alingHcenter">
+        <a class="desplegar" style="cursor: pointer;" title="Desplegar" onclick="DesplegarModulo(@Model.Module.Id)">
+            <i id="simbolo_desplegable_@Model.Module.Id" class="fas fa-plus"></i>
+        </a>
+    </div>
+    <div class="alingVcenter">
+        @Model.Module.Name
+    </div>
+    <div class="alingVcenter">
+        @*<i class="fas fa-file-alt"></i>*@
+    </div>
+    <div class="alingVcenter">
+        <i class="fas fa-times" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalBorrarModulo" title="Eliminar Módulo" onclick="SetIdSelectedModule(@Model.Module.Id)"></i>
+    </div>
+</div>
+<div id="contenido_desplegable_@Model.Module.Id" class="sangria fila_modulo_@Model.Module.Id pb-2" style="display: none">
+    <div id="tablaVistasModulo_@Model.Module.Id" class="tg-grid" name="table">
+        <div label-grid="header" tgcolumns="header">
+            <div class="alingVcenter alingHcenter">
+                <i class="fas fa-plus-square fa-lg" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalNuevaVista" title="Crear Vista" onclick="SetIdSelectedModule(@Model.Module.Id)"></i>
+            </div>
+            <div class="alingVcenter">
+                Vistas
+            </div>
+        </div>
+
+        @foreach (var item in Model.Views)
+        {
+            { Html.RenderAction("View", "ModalsManagement", new { view = item }); }
+        }
+
+    </div>
+</div>
+<div class="fila_modulo_@Model.Module.Id"></div>

@@ -22,8 +22,15 @@ namespace ModalHelp
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/Views/ModalsManagement").Include(
+                      "~/Scripts/Views/ModalsManagement.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/InterBitCode").Include(
+                      "~/Scripts/InterBitCode.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/InterBitCode.css",
                       "~/Content/site.css"));
         }
     }

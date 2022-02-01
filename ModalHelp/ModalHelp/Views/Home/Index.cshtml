@@ -2,30 +2,6 @@
     ViewBag.Title = "Home Page";
 }
 
-<style>
-    .tg-grid [tgcolumns="header"] {
-        display: grid;
-        grid-template-columns: 50px 1fr 30px 30px;
-    }
-
-    .tg-grid [tgcolumns="row"] {
-        display: grid;
-        grid-template-columns: 50px 1fr 30px 30px;
-    }
-
-    .endRow {
-        grid-template-columns: 20px 1fr 30px 30px !important;
-    }
-
-    .sangria {
-        padding-left: 30px;
-    }
-
-    .fa-plus, .fa-minus {
-        color: #8F99A4;
-    }
-</style>
-
 <div>
     @{Html.RenderAction("ModulesList", "ModalsManagement");}
 </div>

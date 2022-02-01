@@ -22,3 +22,29 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.buttonCreate {
+    color: white;
+    background-color: mediumseagreen;
+    border: solid 2px seagreen;
+    transition: background-color 2s, border 2s;
+}
+
+.buttonCreate:hover{
+    color: white;
+    background-color: seagreen;
+    border: solid 2px mediumseagreen;
+}
+
+.buttonDelete {
+    color: white;
+    background-color: indianred;
+    border: solid 2px #8f4040;
+    transition: background-color 2s, border 2s;
+}
+
+.buttonDelete:hover{
+    color: white;
+    background-color: #8f4040;
+    border: solid 2px indianred;
+}

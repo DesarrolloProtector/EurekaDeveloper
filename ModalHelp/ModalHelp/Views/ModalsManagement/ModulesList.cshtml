@@ -1,10 +1,34 @@
 ﻿
-<input id="idSelectedModule" value="" hidden />
+<input id="idSelectedElement" value="" hidden />
+
+<style>
+    .tg-grid [tgcolumns="header"] {
+        display: grid;
+        grid-template-columns: 40px 1fr 30px 30px;
+    }
+
+    .tg-grid [tgcolumns="row"] {
+        display: grid;
+        grid-template-columns: 40px 1fr 30px 30px;
+    }
+
+    .endRow {
+        grid-template-columns: 20px 1fr 30px 30px !important;
+    }
+
+    .sangria {
+        padding-left: 30px;
+    }
+
+    .fa-plus, .fa-minus {
+        color: #8F99A4;
+    }
+</style>
 
 <div id="tablaModulos" class="tg-grid" name="table">
     <div label-grid="header" tgcolumns="header">
         <div class="alingVcenter alingHcenter">
-            <i class="fas fa-plus-square fa-lg" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalNuevoModulo" title="Crear Módulo"></i>
+            <i class="fas fa-plus-square fa-lg" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalNuevoModulo" title="Crear Módulo" onclick="FocusInputModal(1)"></i>
         </div>
         <div class="alingVcenter">
             M&oacute;dulos
@@ -23,8 +47,8 @@
     <div class="modal-dialog modal-dialog-centered modal-xl my-0" role="document" style="height: 100%;">
         <div class="modal-content" style="background-color: #1f1f27; color: #DFDFDF; height: 70%">
             <div class="modal-body p-4" style="display: flex; flex-direction: column;">
-                <div style="display: flex; flex-direction: row; height: min-content">
-                    <p class="m-0 pl-2" style="font-size: 32px; font-weight: 100">
+                <div class="pb-3" style="display: flex; flex-direction: row; height: min-content">
+                    <p class="m-0" style="font-size: 32px; font-weight: 100">
                         MODAL AYUDA
                     </p>
                     <div style="flex: 1"></div>
@@ -32,12 +56,18 @@
                         <i class="fas fa-times fa-xs"></i>
                     </button>
                 </div>
-                <br />
-                <div class="pl-2" style="display: flex; flex-direction: column; flex: 1">
-                    <div class="pb-2">
-                        Cuerpo del modal:
+                <div style="display: flex; flex-direction: column; flex: 1">
+                    <div class="pb-4" style="display: flex; flex-direction: column; flex: 1">
+                        <div class="pb-2">
+                            Cuerpo del modal del la vista <b id="nombreVistaInfo" style="color: dodgerblue"></b>:
+                        </div>
+                        <textarea id="cuerpoModal" class="p-0 m-0" style="flex: 1; max-width: 100% !important; resize: none; background-color: #DFDFDF; color: #1f1f27" maxlength="3999"></textarea>
                     </div>
-                    <textarea id="cuerpoModal" class="p-0 m-0" style="flex: 1; max-width: 100% !important;" maxlength="3999"></textarea>
+                    <div style="display: flex; flex-direction: row">
+                        <div style="flex: 1"></div>
+                        <button type="button" class="btn buttonCreate mr-4 align-self-end" style="width: 80px;" onclick="GuardarInfoModal()" data-dismiss="modal">Guardar</button>
+                        <button type="button" class="btn btn-secondary align-self-end" style="width: 80px;" data-dismiss="modal">Cancelar</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,8 +95,11 @@
                     </div>
                     <input type="text" id="nombreNuevoModulo" maxlength="1000" style="max-width: 100% !important;" />
                     <span id="alertModuleVoidName" class="text-danger" style="display: none">El campo Nombre no puede estar vac&iacute;o</span>
-                    <div style="display: flex; justify-content: end; flex: 1">
-                        <button type="button" class="btn btn-primary align-self-end" style="width: 80px;" onclick="CrearElemento(1)">Crear</button>
+                    <div style="flex: 1"></div>
+                    <div style="display: flex; flex-direction: row">
+                        <div style="flex: 1"></div>
+                        <button type="button" class="btn buttonCreate mr-4 align-self-end" style="width: 80px;" onclick="CrearElemento(1)" data-dismiss="modal">Crear</button>
+                        <button type="button" class="btn btn-secondary align-self-end" style="width: 80px;" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
             </div>
@@ -95,8 +128,11 @@
                     </div>
                     <input type="text" id="nombreNuevaVista" maxlength="1000" style="max-width: 100% !important;" />
                     <span id="alertViewVoidName" class="text-danger" style="display: none">El campo Nombre no puede estar vac&iacute;o</span>
-                    <div style="display: flex; justify-content: end; flex: 1">
-                        <button type="button" class="btn btn-primary align-self-end" style="width: 80px;" onclick="CrearElemento(2)">Crear</button>
+                    <div style="flex: 1"></div>
+                    <div style="display: flex;  flex-direction: row">
+                        <div style="flex: 1"></div>
+                        <button type="button" class="btn buttonCreate mr-4 align-self-end" style="width: 80px;" onclick="CrearElemento(2)" data-dismiss="modal">Crear</button>
+                        <button type="button" class="btn btn-secondary align-self-end" style="width: 80px;" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
             </div>
@@ -120,12 +156,41 @@
                 </div>
                 <div style="flex: 1"></div>
                 <div>
-                    Est&aacute; a punto de eliminar un m&oacute;dulo y todo su contenido.
+                    Est&aacute; a punto de eliminar el m&oacute;dulo <b id="nombreModuloEliminar" style="color: dodgerblue"></b> y todo su contenido.
                 </div>
                 <div style="flex: 1"></div>
                 <div style="display: flex; flex-direction: row">
                     <div style="flex: 1"></div>
-                    <button type="button" class="btn btn-primary align-self-end mr-4" style="width: 80px;" onclick="BorrarElemento(2)">Eliminar</button>
+                    <button type="button" class="btn align-self-end mr-4 buttonDelete" style="width: 80px;" onclick="BorrarElemento(1)" data-dismiss="modal">Eliminar</button>
+                    <button type="button" class="btn btn-secondary align-self-end" style="width: 80px;" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal borrar Vista -->
+<div class="modal fade" id="modalBorrarVista" tabindex="-1" role="dialog" aria-labelledby="DeleteModule" aria-hidden="true" style="position: fixed; top: 0; left: 0; ">
+    <div class="modal-dialog modal-dialog-centered my-0" role="document" style="height: 100%;">
+        <div class="modal-content" style="background-color: #1f1f27; color: #DFDFDF; height: 40%; min-height: 254px">
+            <div class="modal-body p-4" style="display: flex; flex-direction: column;">
+                <div style="display: flex; flex-direction: row; height: min-content">
+                    <p class="m-0" style="font-size: 32px; font-weight: 100">
+                        Eliminar Vista
+                    </p>
+                    <div style="flex: 1"></div>
+                    <button type="button" class="close text-light align-self-start" style="display: flex; align-content: center" title="Cerrar" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times fa-xs"></i>
+                    </button>
+                </div>
+                <div style="flex: 1"></div>
+                <div>
+                    Est&aacute; a punto de eliminar la vista <b id="nombreVistaEliminar" style="color: dodgerblue"></b> y la informaci&oacute;n de su modal.
+                </div>
+                <div style="flex: 1"></div>
+                <div style="display: flex; flex-direction: row">
+                    <div style="flex: 1"></div>
+                    <button type="button" class="btn btn-primary align-self-end mr-4 buttonDelete" style="width: 80px;" onclick="BorrarElemento(2)" data-dismiss="modal">Eliminar</button>
                     <button type="button" class="btn btn-secondary align-self-end" style="width: 80px;" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>

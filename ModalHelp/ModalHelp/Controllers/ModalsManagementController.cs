@@ -130,7 +130,12 @@ namespace ModalHelp.Controllers
         {
             try
             {
-                return PartialView(view);
+                HelpModals modal = new HelpModals();
+                modal = db.HelpModals.FirstOrDefault(x => x.IdView == view.Id);
+                View_Model model = new View_Model(modal, view);
+
+                return PartialView(model);
+                //return PartialView(view);
             }
             catch
             {
@@ -145,6 +150,7 @@ namespace ModalHelp.Controllers
             {
                 Views view = new Views();
                 view.Name = name;
+                view.IdModule = idModule;
 
                 Views existente = db.Views.FirstOrDefault(x => x.Name == name && x.IdModule == idModule);
                 if (existente != null)
@@ -172,15 +178,83 @@ namespace ModalHelp.Controllers
                 }
 
             }
-            catch
+            catch (Exception e)
             {
                 aj = new AjaxData()
 
                 {
                     Successful = false,
                     CustomError = "",
-                    Text = ""
+                    Text = e.ToString()
                 };
+            }
+            return JsonConvert.SerializeObject(aj);
+        }
+
+        public string DeleteView(int id)
+        {
+            AjaxData aj;
+            try
+            {
+                Views view = db.Views.FirstOrDefault(x => x.Id == id);
+
+                db.Views.Remove(view);
+                db.SaveChanges();
+
+                aj = new AjaxData()
+                {
+                    Successful = true,
+                    CustomError = "",
+                    Text = "Correct"
+                };
+            }
+            catch (Exception e)
+            {
+                aj = new AjaxData()
+                {
+                    Successful = false,
+                    CustomError = "Ha habido un error al eliminar una vista",
+                    Text = "Excepción: " + e.ToString()
+                };
+                throw;
+            }
+            return JsonConvert.SerializeObject(aj);
+        }
+
+        public string SaveHelpModalInfo(int idView, string body)
+        {
+            AjaxData aj;
+            try
+            {
+                HelpModals existente = new HelpModals();
+                existente = db.HelpModals.FirstOrDefault(x => x.IdView == idView);
+                if (existente != null)
+                {
+                    existente.Body = body;
+                }
+                else
+                {
+                    HelpModals modal = new HelpModals(body, idView);
+                    db.HelpModals.Add(modal);
+                }
+                db.SaveChanges();
+                
+                aj = new AjaxData()
+                {
+                    Successful = true,
+                    CustomError = "",
+                    Text = "Correct"
+                };
+            }
+            catch (Exception e)
+            {
+                aj = new AjaxData()
+                {
+                    Successful = false,
+                    CustomError = "Ha habido un error al guardar el texto de un modal de ayuda",
+                    Text = "Excepción: " + e.ToString()
+                };
+                throw;
             }
             return JsonConvert.SerializeObject(aj);
         }

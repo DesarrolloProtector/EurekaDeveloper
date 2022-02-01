@@ -1,14 +1,23 @@
 ﻿
-@model ModalHelp.DBContent.Views
+@model ModalHelp.Models.View_Model
 
-<div label-grid="row" tgcolumns="row">
+<div class="fila_vista_@Model.View.Id view" label-grid="row" tgcolumns="row">
+    <div></div>
     <div class="alingVcenter">
-        @Model.Name
+        @Model.View.Name
     </div>
     <div class="alingVcenter">
-        <i class="fas fa-file-alt"></i>
+        @{
+            var body = "";
+            if (Model.HelpModal != null)
+            {
+                body = @Model.HelpModal.Body;
+            }
+        }
+        <i class="fas fa-file-alt" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalAyuda" title="Editar Modal Ayuda" onclick="AbrirModalInfo(@Model.View.Id); SetSelectedElement(@Model.View.Id, '@Model.View.Name', 2); FocusInputModal(3);"></i>
+        <input id="bodyModal_@Model.View.Id" value="@body" hidden />
     </div>
     <div class="alingVcenter">
-        <i class="fas fa-times"></i>
+        <i class="fas fa-times" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalBorrarVista" title="Eliminar Vista" onclick="SetSelectedElement(@Model.View.Id, '@Model.View.Name', 2)"></i>
     </div>
 </div>

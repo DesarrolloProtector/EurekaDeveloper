@@ -31,7 +31,7 @@ namespace ModalHelp
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/InterBitCode.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
         }
     }
 }

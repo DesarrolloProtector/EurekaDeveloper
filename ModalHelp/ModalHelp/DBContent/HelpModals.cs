@@ -16,5 +16,14 @@ namespace ModalHelp.DBContent
 
         [Required]
         public int IdView { get; set; }
+
+        public HelpModals()
+        { }
+
+        public HelpModals(string b, int i)
+        {
+            Body = b;
+            IdView = i;
+        }
     }
 }

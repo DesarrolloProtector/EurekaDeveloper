@@ -14,14 +14,14 @@
         @*<i class="fas fa-file-alt"></i>*@
     </div>
     <div class="alingVcenter">
-        <i class="fas fa-times" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalBorrarModulo" title="Eliminar Módulo" onclick="SetIdSelectedModule(@Model.Module.Id)"></i>
+        <i class="fas fa-times" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalBorrarModulo" title="Eliminar Módulo" onclick="SetSelectedElement(@Model.Module.Id, '@Model.Module.Name', 1)"></i>
     </div>
 </div>
 <div id="contenido_desplegable_@Model.Module.Id" class="sangria fila_modulo_@Model.Module.Id pb-2" style="display: none">
     <div id="tablaVistasModulo_@Model.Module.Id" class="tg-grid" name="table">
         <div label-grid="header" tgcolumns="header">
             <div class="alingVcenter alingHcenter">
-                <i class="fas fa-plus-square fa-lg" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalNuevaVista" title="Crear Vista" onclick="SetIdSelectedModule(@Model.Module.Id)"></i>
+                <i class="fas fa-plus-square fa-lg" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalNuevaVista" title="Crear Vista" onclick="SetSelectedElement(@Model.Module.Id, '@Model.Module.Name', 1); FocusInputModal(2);"></i>
             </div>
             <div class="alingVcenter">
                 Vistas

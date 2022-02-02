@@ -129,6 +129,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EditModalController.cs" />
     <Compile Include="Controllers\ModalsManagementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DBContent\EurekaDeveloperDB.cs" />
@@ -139,6 +140,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AjaxData.cs" />
+    <Compile Include="Models\EditModal\Edit_Model.cs" />
     <Compile Include="Models\ModalsManagement\View_Model.cs" />
     <Compile Include="Models\ModalsManagement\Module_Model.cs" />
     <Compile Include="Models\ModalsManagement\Modules_Model.cs" />
@@ -197,6 +199,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\Views\EditModal.js" />
     <Content Include="Scripts\Views\ModalsManagement.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -222,6 +225,7 @@
     <Content Include="Views\ModalsManagement\ModulesList.cshtml" />
     <Content Include="Views\ModalsManagement\Module.cshtml" />
     <Content Include="Views\ModalsManagement\View.cshtml" />
+    <Content Include="Views\EditModal\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

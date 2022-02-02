@@ -25,6 +25,9 @@ namespace ModalHelp
             bundles.Add(new ScriptBundle("~/Views/ModalsManagement").Include(
                       "~/Scripts/Views/ModalsManagement.js"));
 
+            bundles.Add(new ScriptBundle("~/Views/EditModal").Include(
+                      "~/Scripts/Views/EditModal.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/InterBitCode").Include(
                       "~/Scripts/InterBitCode.js"));
 

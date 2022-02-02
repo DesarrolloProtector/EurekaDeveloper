@@ -43,8 +43,18 @@ textarea {
     transition: background-color 2s, border 2s;
 }
 
-.buttonDelete:hover{
+.buttonDelete:hover {
     color: white;
     background-color: #8f4040;
     border: solid 2px indianred;
+}
+
+.titulo1 {
+    font-size: 40px;
+    font-weight: 100;
+}
+
+.titulo3 {
+    font-size: 24px;
+    font-weight: 200;
 }

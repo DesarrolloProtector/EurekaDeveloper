@@ -1,0 +1,3 @@
+﻿function back() {
+    $("#Back").submit();
+}

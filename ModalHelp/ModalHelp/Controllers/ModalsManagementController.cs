@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ModalHelp.DBContent;
 using ModalHelp.Models;
+using ModalHelp.Models.ModalsManagement;
 using Newtonsoft.Json;
 
 namespace ModalHelp.Controllers

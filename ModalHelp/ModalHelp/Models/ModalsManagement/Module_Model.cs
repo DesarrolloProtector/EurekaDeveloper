@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using ModalHelp.DBContent;
 
-namespace ModalHelp.Models
+namespace ModalHelp.Models.ModalsManagement
 {
     public class Module_Model
     {

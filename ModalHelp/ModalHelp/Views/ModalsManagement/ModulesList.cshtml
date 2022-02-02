@@ -1,6 +1,10 @@
 ﻿
 <input id="idSelectedElement" value="" hidden />
-
+@using (Html.BeginForm("Edit", "EditModal", FormMethod.Post, new { id = "EditModal" }))
+{
+    @Html.AntiForgeryToken()
+    <input name="IdView" id="IdView" hidden />
+}
 <style>
     .tg-grid [tgcolumns="header"] {
         display: grid;
@@ -43,7 +47,7 @@
 
 
 <!-- Modal editar cuerpo de modal de ayuda -->
-<div class="modal fade" id="modalAyuda" tabindex="-1" role="dialog" aria-labelledby="Help" aria-hidden="true" style="position: fixed; top: 0; left: 0; ">
+@*<div class="modal fade" id="modalAyuda" tabindex="-1" role="dialog" aria-labelledby="Help" aria-hidden="true" style="position: fixed; top: 0; left: 0; ">
     <div class="modal-dialog modal-dialog-centered modal-xl my-0" role="document" style="height: 100%;">
         <div class="modal-content" style="background-color: #1f1f27; color: #DFDFDF; height: 70%">
             <div class="modal-body p-4" style="display: flex; flex-direction: column;">
@@ -72,7 +76,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 
 <!-- Modal nuevo Modulo -->
 <div class="modal fade" id="modalNuevoModulo" tabindex="-1" role="dialog" aria-labelledby="NewModule" aria-hidden="true" style="position: fixed; top: 0; left: 0; ">

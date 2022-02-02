@@ -234,18 +234,15 @@ function FocusInputModal(cual) {
             modal = $("#modalNuevaVista");
             input = "#nombreNuevaVista";
             break;
-        case 3:
-            modal = $("#modalAyuda");
-            input = "#cuerpoModal";
-            break;
     }
     modal.on('shown.bs.modal', function () {
         $(this).find(input).focus();
     });
 }
 
-function AbrirModalInfo(idView) {
-    $("#cuerpoModal").val($("#bodyModal_" + idView).val());
+function EditarModal(idView) {
+    $("#IdView").val(idView);
+    $("#EditModal").submit();
 }
 
 // Guarda el texto que ira en un modal de ayuda

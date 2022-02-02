@@ -1,5 +1,5 @@
 ﻿
-@model ModalHelp.Models.View_Model
+@model ModalHelp.Models.ModalsManagement.View_Model
 
 <div class="fila_vista_@Model.View.Id view" label-grid="row" tgcolumns="row">
     <div></div>
@@ -14,7 +14,7 @@
                 body = @Model.HelpModal.Body;
             }
         }
-        <i class="fas fa-file-alt" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalAyuda" title="Editar Modal Ayuda" onclick="AbrirModalInfo(@Model.View.Id); SetSelectedElement(@Model.View.Id, '@Model.View.Name', 2); FocusInputModal(3);"></i>
+        <i class="fas fa-file-alt" style="cursor:pointer;" title="Editar Modal Ayuda" onclick="EditarModal(@Model.View.Id)"></i>
         <input id="bodyModal_@Model.View.Id" value="@body" hidden />
     </div>
     <div class="alingVcenter">

@@ -1,0 +1,397 @@
+﻿/*Colores del Botón One. Aceptar*/
+.btn-One {    
+    background-color: #ba172d;
+    border-color: #a31528;
+    color:white;
+    width: 100px;
+    cursor:pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-One-Hidden {    
+    background-color: #630c18;
+    border-color: #510a14;
+    color: white;
+    width: 100px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-One-Hidden:hover {
+    background-color: #630c18;
+    border-color: #510a14;
+    color: white;
+    width: 100px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-One:hover {
+    color: #fff;
+    background-color: #a31528;
+    border-color: #ba172d;
+}
+
+.btn-One:focus, .btn-One.focus {
+    box-shadow: 0 0 0 0.1rem rgba(186, 23, 45, 0.5);
+}
+
+.btn-One.disabled, .btn-One:disabled {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-One:not(:disabled):not(.disabled):active, .btn-One:not(:disabled):not(.disabled).active,
+.show > .btn-One.dropdown-toggle {
+    color: #fff;
+    background-color: #ba172d;
+    border-color: #a31528;
+}
+
+.btn-One:not(:disabled):not(.disabled):active:focus, .btn-One:not(:disabled):not(.disabled).active:focus,
+.show > .btn-One.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.1rem rgba(186, 23, 45, 0.5);
+}
+/********************************************************************************************/
+
+/*Colores del Botón Two. Cancelar*/
+.btn-Two {
+    color: #fff;
+    background-color: #6C757D;
+    border-color: #7F8A93;
+    width: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+    .btn-Two:hover {
+        color: #fff;
+        background-color: #5A6268;
+        border-color: #7F8A93;
+    }
+
+    .btn-Two:focus, .btn-Two.focus {
+        box-shadow: 0 0 0 0.1rem rgba(90, 98, 104, 0.5);
+    }
+
+    .btn-Two.disabled, .btn-Two:disabled {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-Two:not(:disabled):not(.disabled):active, .btn-Two:not(:disabled):not(.disabled).active,
+    .show > .btn-Two.dropdown-toggle {
+        color: #fff;
+        background-color: #6C757D;
+        border-color: #7F8A93;
+    }
+
+        .btn-Two:not(:disabled):not(.disabled):active:focus, .btn-Two:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-Two.dropdown-toggle:focus {
+            box-shadow: 0 0 0 0.1rem rgba(90, 98, 104, 0.5);
+        }
+/********************************************************************************************/
+
+/*Tabla de Bootstrap*/
+.table-One {
+width: 100%;
+max-width: 100%;
+margin-bottom: 1rem;
+background-color: transparent
+}
+
+/*Borde superior de las filas*/
+.table-One td, .table-One th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6
+}
+
+/*Borde inferior del encabezado*/
+.table-One thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #fff;
+    color: #fff
+}
+
+.table-One tbody + tbody {
+    border-top: 2px solid #dee2e6
+}
+
+.table-One .table-One {
+    background-color: #fff
+}
+
+.table-One-sm td, .table-One-sm th {
+    padding: .3rem
+}
+
+.table-One-bordered {
+    border: 1px solid #dee2e6
+}
+
+.table-One-bordered td, .table-One-bordered th {
+    border: 1px solid #dee2e6
+}
+
+.table-One-bordered thead td, .table-One-bordered thead th {
+    border-bottom-width: 2px
+}
+
+/*Color de la fila par*/
+.table-One-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.05)
+}
+
+/*Color de la fila impar*/
+.table-One-striped tbody tr:nth-of-type(even) {
+    background-color: rgba(0,0,0,.0)
+}
+
+/*Color de la fila al pasar el ratón*/
+.table-One-hover tbody tr:hover {
+    background-color: rgba(0,0,0,.075)
+}
+
+.table-One-primary, .table-One-primary > td, .table-One-primary > th {
+    background-color: #b8daff
+}
+
+.table-One-hover .table-One-primary:hover {
+    background-color: #9fcdff
+}
+
+    .table-One-hover .table-One-primary:hover > td, .table-One-hover .table-One-primary:hover > th {
+        background-color: #9fcdff
+    }
+
+.table-One-secondary, .table-One-secondary > td, .table-One-secondary > th {
+    background-color: #d6d8db
+}
+
+.table-One-hover .table-One-secondary:hover {
+    background-color: #c8cbcf
+}
+
+    .table-One-hover .table-One-secondary:hover > td, .table-One-hover .table-One-secondary:hover > th {
+        background-color: #c8cbcf
+    }
+
+/*Color del fondo del encabezado*/
+.table-One-success, .table-One-success > td, .table-One-success > th {
+    background-color: #8f99a4
+}
+
+.table-One-hover .table-One-success:hover {
+    background-color: #8f99a4
+}
+
+    .table-One-hover .table-One-success:hover > td, .table-One-hover .table-One-success:hover > th {
+        background-color: #8f99a4
+    }
+
+.table-One-info, .table-One-info > td, .table-One-info > th {
+    background-color: #bee5eb
+}
+
+.table-One-hover .table-One-info:hover {
+    background-color: #abdde5
+}
+
+    .table-One-hover .table-One-info:hover > td, .table-One-hover .table-One-info:hover > th {
+        background-color: #abdde5
+    }
+
+.table-One-warning, .table-One-warning > td, .table-One-warning > th {
+    background-color: #ffeeba
+}
+
+.table-One-hover .table-One-warning:hover {
+    background-color: #ffe8a1
+}
+
+    .table-One-hover .table-One-warning:hover > td, .table-One-hover .table-One-warning:hover > th {
+        background-color: #ffe8a1
+    }
+
+.table-One-danger, .table-One-danger > td, .table-One-danger > th {
+    background-color: #f5c6cb
+}
+
+.table-One-hover .table-One-danger:hover {
+    background-color: #f1b0b7
+}
+
+    .table-One-hover .table-One-danger:hover > td, .table-One-hover .table-One-danger:hover > th {
+        background-color: #f1b0b7
+    }
+
+.table-One-light, .table-One-light > td, .table-One-light > th {
+    background-color: #fdfdfe
+}
+
+.table-One-hover .table-One-light:hover {
+    background-color: #ececf6
+}
+
+    .table-One-hover .table-One-light:hover > td, .table-One-hover .table-One-light:hover > th {
+        background-color: #ececf6
+    }
+
+.table-One-dark, .table-One-dark > td, .table-One-dark > th {
+    background-color: #c6c8ca
+}
+
+.table-One-hover .table-One-dark:hover {
+    background-color: #b9bbbe
+}
+
+    .table-One-hover .table-One-dark:hover > td, .table-One-hover .table-One-dark:hover > th {
+        background-color: #b9bbbe
+    }
+
+.table-One-active, .table-One-active > td, .table-One-active > th {
+    background-color: rgba(0,0,0,.075)
+}
+
+.table-One-hover .table-One-active:hover {
+    background-color: rgba(0,0,0,.075)
+}
+
+    .table-One-hover .table-One-active:hover > td, .table-One-hover .table-One-active:hover > th {
+        background-color: rgba(0,0,0,.075)
+    }
+
+.table-One .thead-dark th {
+    color: #fff;
+    background-color: #212529;
+    border-color: #32383e
+}
+
+.table-One .thead-light th {
+    color: #495057;
+    background-color: #e9ecef;
+    border-color: #dee2e6
+}
+
+.table-One-dark {
+    color: #fff;
+    background-color: #212529
+}
+
+    .table-One-dark td, .table-One-dark th, .table-One-dark thead th {
+        border-color: #32383e
+    }
+
+    .table-One-dark.table-One-bordered {
+        border: 0
+    }
+
+    .table-One-dark.table-One-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(255,255,255,.05)
+    }
+
+    .table-One-dark.table-One-hover tbody tr:hover {
+        background-color: rgba(255,255,255,.075)
+    }
+
+@media (max-width:575.98px) {
+    .table-One-responsive-sm {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar
+    }
+
+        .table-One-responsive-sm > .table-One-bordered {
+            border: 0
+        }
+}
+
+@media (max-width:767.98px) {
+    .table-One-responsive-md {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar
+    }
+
+        .table-One-responsive-md > .table-One-bordered {
+            border: 0
+        }
+}
+
+@media (max-width:991.98px) {
+    .table-One-responsive-lg {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar
+    }
+
+        .table-One-responsive-lg > .table-One-bordered {
+            border: 0
+        }
+}
+
+@media (max-width:1199.98px) {
+    .table-One-responsive-xl {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar
+    }
+
+        .table-One-responsive-xl > .table-One-bordered {
+            border: 0
+        }
+}
+
+.table-One-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar
+}
+
+    .table-One-responsive > .table-One-bordered {
+        border: 0
+    }
+
+/*Clases para la ventana de error del sistema*/
+.HeaderError {
+    height: 75px;
+    background-color: #ba172d;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    font-family: 'Kanit', cursive;
+    font-size: 30px;
+}
+
+.BodyError {
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    font-family: 'Kanit', cursive;
+    font-size: 20px;
+}
+
+.FooterError {
+    height: 60px;
+    background-color: darkgrey;
+    border-radius: 10px;
+    color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    font-family: 'Kanit', cursive;
+    font-size: 15px;
+}
+/********************************************************************************************/

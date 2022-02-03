@@ -244,34 +244,3 @@ function EditarModal(idView) {
     $("#IdView").val(idView);
     $("#EditModal").submit();
 }
-
-// Guarda el texto que ira en un modal de ayuda
-function GuardarInfoModal() {
-    var idView = $("#idSelectedElement").val();
-    var body = $("#cuerpoModal").val();
-    var url = "/ModalsManagement/SaveHelpModalInfo";
-    var data = {
-        idView: parseInt(idView),
-        body: body
-    };
-    postData(url, data)
-        .then(data => {
-            if (data.Successful) {
-
-                $("#bodyModal_" + idView).val(body);
-                alert("La información del modal de ayuda de la vista " + $("#nombreVistaInfo").html() + " se ha guardado correctamente.");
-
-            } else {
-
-                alert("Error");
-                //Código que se ejecuta si el procedimiento ha fallado.
-
-            }
-        })
-        .catch(error => {
-
-            alert("Error Ajax");
-            //Código que se ejecuta si la conexión con el servidor y el procedimiento han fallado.
-
-        });
-}

@@ -133,6 +133,8 @@
     <Compile Include="Controllers\ModalsManagementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DBContent\EurekaDeveloperDB.cs" />
+    <Compile Include="DBContent\Icons.cs" />
+    <Compile Include="DBContent\InfoIcons.cs" />
     <Compile Include="DBContent\Views.cs" />
     <Compile Include="DBContent\Modules.cs" />
     <Compile Include="DBContent\HelpModals.cs" />
@@ -154,6 +156,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\InterBitCode.css" />
+    <Content Include="Content\QuotesBootstrap.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

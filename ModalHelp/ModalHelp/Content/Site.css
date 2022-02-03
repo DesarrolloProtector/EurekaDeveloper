@@ -49,6 +49,19 @@ textarea {
     border: solid 2px indianred;
 }
 
+.buttonSecondary {
+    color: white;
+    background-color: Highlight;
+    border: solid 2px #00579b;
+    transition: background-color 2s, border 2s;
+}
+
+.buttonSecondary:hover {
+    color: white;
+    background-color: #00579b;
+    border: solid 2px Highlight;
+}
+
 .titulo1 {
     font-size: 40px;
     font-weight: 100;
@@ -56,5 +69,10 @@ textarea {
 
 .titulo3 {
     font-size: 24px;
+    font-weight: 200;
+}
+
+.titulo4 {
+    font-size: 20px;
     font-weight: 200;
 }

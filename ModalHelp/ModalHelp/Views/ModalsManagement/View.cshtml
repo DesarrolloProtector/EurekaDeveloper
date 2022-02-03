@@ -2,20 +2,12 @@
 @model ModalHelp.Models.ModalsManagement.View_Model
 
 <div class="fila_vista_@Model.View.Id view" label-grid="row" tgcolumns="row">
-    <div></div>
+    <div class="alingHcenter alingVcenter">@Model.View.Id</div>
     <div class="alingVcenter">
         @Model.View.Name
     </div>
     <div class="alingVcenter">
-        @{
-            var body = "";
-            if (Model.HelpModal != null)
-            {
-                body = @Model.HelpModal.Body;
-            }
-        }
         <i class="fas fa-file-alt" style="cursor:pointer;" title="Editar Modal Ayuda" onclick="EditarModal(@Model.View.Id)"></i>
-        <input id="bodyModal_@Model.View.Id" value="@body" hidden />
     </div>
     <div class="alingVcenter">
         <i class="fas fa-times" href="#" data-toggle="modal" style="cursor:pointer;" data-target="#modalBorrarVista" title="Eliminar Vista" onclick="SetSelectedElement(@Model.View.Id, '@Model.View.Name', 2)"></i>

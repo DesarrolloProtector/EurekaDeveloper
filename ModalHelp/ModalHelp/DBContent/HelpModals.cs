@@ -12,18 +12,23 @@ namespace ModalHelp.DBContent
         public int Id { get; set; }
 
         [Required]
-        public string Body { get; set; }
-
-        [Required]
         public int IdView { get; set; }
+
+        public string Title { get; set; }
+
+        public string ViewInfo { get; set; }
+
+        public string Notes { get; set; }
 
         public HelpModals()
         { }
 
-        public HelpModals(string b, int i)
+        public HelpModals(int iV, string t, string v, string n)
         {
-            Body = b;
-            IdView = i;
+            IdView = iV;
+            Title = t;
+            ViewInfo = v;
+            Notes = n;
         }
     }
 }

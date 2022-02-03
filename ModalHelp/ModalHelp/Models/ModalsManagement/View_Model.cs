@@ -8,7 +8,6 @@ namespace ModalHelp.Models.ModalsManagement
 {
     public class View_Model
     {
-        public HelpModals HelpModal;
         public Views View;
 
         public View_Model()
@@ -17,7 +16,6 @@ namespace ModalHelp.Models.ModalsManagement
         }
         public View_Model(HelpModals h, Views v)
         {
-            HelpModal = h;
             View = v;
         }
     }

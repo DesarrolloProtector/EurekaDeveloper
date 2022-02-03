@@ -222,43 +222,5 @@ namespace ModalHelp.Controllers
             return JsonConvert.SerializeObject(aj);
         }
 
-        public string SaveHelpModalInfo(int idView, string body)
-        {
-            AjaxData aj;
-            try
-            {
-                HelpModals existente = new HelpModals();
-                existente = db.HelpModals.FirstOrDefault(x => x.IdView == idView);
-                if (existente != null)
-                {
-                    existente.Body = body;
-                }
-                else
-                {
-                    HelpModals modal = new HelpModals(body, idView);
-                    db.HelpModals.Add(modal);
-                }
-                db.SaveChanges();
-                
-                aj = new AjaxData()
-                {
-                    Successful = true,
-                    CustomError = "",
-                    Text = "Correct"
-                };
-            }
-            catch (Exception e)
-            {
-                aj = new AjaxData()
-                {
-                    Successful = false,
-                    CustomError = "Ha habido un error al guardar el texto de un modal de ayuda",
-                    Text = "Excepción: " + e.ToString()
-                };
-                throw;
-            }
-            return JsonConvert.SerializeObject(aj);
-        }
-
     }
 }

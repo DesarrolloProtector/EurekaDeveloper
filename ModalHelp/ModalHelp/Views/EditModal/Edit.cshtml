@@ -8,6 +8,7 @@
     var negro = "#1f1f27";
     var gris = "rgba(0, 0, 0, 0.1)";
     var fondo = "#EBEBEB";
+    var minHeight = "0px";
 }
 
 <style>
@@ -33,27 +34,28 @@
 <input id="vistaId" value="@Model.View.Id" hidden />
 <input id="vistaName" value="@Model.View.Name" hidden />
 
+<input id="modalId" value="@Model.HelpModal.Id" hidden />
 <input id="modalTitle" value="@Model.HelpModal.Title" hidden />
 <input id="modalViewInfo" value="@Model.HelpModal.ViewInfo" hidden />
 <input id="modalNotes" value="@Model.HelpModal.Notes" hidden />
 
 <input id="iconos" value="@Model.Icons" hidden />
 
-<div id="ElDiv" style="display: flex; flex-direction: column; color: @negro; cursor: default;">
+<div id="ElDiv" style="display: flex; flex-direction: column; color: @negro; cursor: default; min-height: @minHeight; min-width: 510px;">
 
     <div style="display: flex; flex-direction: row">
         <div class="text-shadow titulo1">
             AYUDA DE <b>@Model.View.Name</b>
         </div>
 
-        <div class="pl-4" style="display: flex">
-            <button type="button" class="btn btn-One align-self-center" onclick="GuardarInfoModal()" style="width: 80px;">Guardar</button>
-        </div>
-
         <div style="flex: 1"></div>
 
         <div class="align-self-center">
-            <a style="color:black;cursor:pointer;" title="Volver a la lista de módulos" onclick="back();"><i class="fa fa-undo fa-2x" aria-hidden="true"></i></a>
+
+            <div class="pl-2 pt-2" style="display: flex">
+                <button type="button" class="btn btn-One align-self-center" onclick="GuardarInfoModal()" style="width: 80px;">Guardar</button>
+            </div>
+
         </div>
 
     </div>
@@ -62,7 +64,7 @@
     </div>
     <div style="display: flex; flex: 1;">
 
-        <div style="display: flex; flex-direction: column; flex: 1; height: 64vh; border-right: solid 1px @gris;">
+        <div style="display: flex; flex-direction: column; flex: 1; height: 64vh; min-height: @minHeight; border-right: solid 1px @gris;">
 
             <div class="p-2" style="display: flex; flex-direction: row;">
                 <div class="titulo3">
@@ -93,42 +95,42 @@
 
         </div>
 
-        <div class="px-2" style="display: flex; flex-direction: column; flex: 1; height: 64vh">
+        <div class="px-2" style="display: flex; flex-direction: column; flex: 1; height: 64vh; min-height: @minHeight; overflow-y: auto;">
 
-            <div style="display: flex; flex-direction: row;">
+            <div style="display: flex; flex-direction: row; padding-bottom: 6px;">
 
                 <div class="titulo3 align-self-center">
                     Iconos
                 </div>
 
                 <div class="mb-2 ml-2 align-self-center" style="">
-                    <select id="desplegableIconos" class="form-control fa">
+                    <select id="desplegableIconos" class="form-control fa" style="color: @negro;" onchange="CambiarIconoSeleccionado()">
                         @for (int i = 0; i < Model.Icons.Count(); i++)
                         {
-                            <option class="fa">@Html.Raw(Model.Icons[i].Code) &nbsp; @Model.Icons[i].Name</option>
+                            <option class="fa" value="@(Model.Icons[i].Id)_@Model.Icons[i].Code">@Html.Raw(Model.Icons[i].Code) &nbsp; @Model.Icons[i].Name</option>
                         }
                     </select>
                     @*<div class="tablaIconos p-2" style="display: flex; flex-direction: column; flex-grow: 0; height: 100%; overflow-x: scroll;">
-                        <div id="iconosFila1" style="display: flex; flex-direction: row; flex: 1;">
-                            @for (int i = 0; i < Model.Icons.Count(); i++)
+                    <div id="iconosFila1" style="display: flex; flex-direction: row; flex: 1;">
+                        @for (int i = 0; i < Model.Icons.Count(); i++)
+                        {
+                            <div style="width: 39px; height: 100%; align-content: center; display: flex;">
+                                <i class="@Model.Icons[i].Code m-auto fas fa-lg" style="cursor: pointer; color: @negro;" onclick="InsertarIcono(this)"></i>
+                            </div>
+                        }
+                    </div>
+                    <div id="iconosFila2" style="display: flex; flex-direction: row; flex: 1;">
+                        @for (int i = 0; i < Model.Icons.Count(); i++)
+                        {
+                            if (i % 2 != 0)
                             {
                                 <div style="width: 39px; height: 100%; align-content: center; display: flex;">
                                     <i class="@Model.Icons[i].Code m-auto fas fa-lg" style="cursor: pointer; color: @negro;" onclick="InsertarIcono(this)"></i>
                                 </div>
                             }
-                        </div>
-                        <div id="iconosFila2" style="display: flex; flex-direction: row; flex: 1;">
-                            @for (int i = 0; i < Model.Icons.Count(); i++)
-                            {
-                                if (i % 2 != 0)
-                                {
-                                    <div style="width: 39px; height: 100%; align-content: center; display: flex;">
-                                        <i class="@Model.Icons[i].Code m-auto fas fa-lg" style="cursor: pointer; color: @negro;" onclick="InsertarIcono(this)"></i>
-                                    </div>
-                                }
-                            }
-                        </div>
-                    </div>*@
+                        }
+                    </div>
+                </div>*@
                 </div>
 
                 <div class="align-self-center px-2">
@@ -142,12 +144,62 @@
                     <div class="titulo3">
                         Informaci&oacute;n de Iconos
                     </div>
-                    <div style="flex: 1;">
-                        <textarea id="newModalIconsInfo" style="width: 100%; height: 100%;" maxlength="3999"></textarea>
-                    </div>
-                </div>
-                <div style="flex:1">
+                    <div style="display: flex; flex-direction: column; flex: 1;">
 
+                        <div style="display: flex; flex-direction: column;">
+
+                            <div style="display: flex; flex-direction: row; border: solid 1px @negro">
+
+                                <div class="align-self-center" style="display:flex; flex-direction: column; width: 64px;">
+                                    <i id="iconoInformacion" class="fas align-self-center" value="@Model.Icons[0].Id">@Html.Raw(Model.Icons[0].Code)</i>
+                                </div>
+
+                                <div class="py-2 pr-2" style="flex: 1;">
+                                    <textarea id="newModalIconsInfo" style="width: 100%; height: 100%; resize: none;" maxlength="3999"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="align-self-center">
+                                <i class="fas fa-plus" style="cursor:pointer;" title="Añadir información de icono" onclick="CrearInfoIcono()"></i>
+                            </div>
+
+                        </div>
+
+                        <div id="tablaInfoIconos" class="px-2 pt-2" style="flex: 1; max-height: 33vh; border: solid 1px @negro; overflow-y: auto">
+
+                            <div id="contenedorInfoIconos" style="display: flex; flex-direction: column;">
+
+                                @foreach (var item in Model.InfoIcons)
+                                {
+                                    <div id="infoIcono_@item.Id" class="mb-2" style="display: flex; flex-direction: row; min-height: 56px; border: solid 1px @negro">
+
+                                        <div class="align-self-center" style="display: flex; flex-direction: column; width: 56px;">
+                                            @foreach (var icon in Model.Icons)
+                                            {
+                                                if (item.IdIcon == icon.Id)
+                                                {
+                                                    <i class="fas align-self-center">@Html.Raw(icon.Code)</i>
+                                                    break;
+                                                }
+                                            }
+                                        </div>
+
+                                        <div class="p-2" style="flex: 1; border-left: solid 1px @negro">
+                                            @item.Info
+                                        </div>
+
+                                        <div style="display: flex; flex-direction: row;">
+                                            <i id="delete_@item.Id" class="fas fa-times align-self-start pt-2 pr-2" style="cursor: pointer;" onclick="EliminarInfoIcono(this)"></i>
+                                        </div>
+
+                                    </div>
+                                }
+
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
 

@@ -35,7 +35,10 @@ namespace ModalHelp.Controllers
             List<Icons> icons = new List<Icons>();
             icons = db.Icons.ToList();
 
-            Edit_Model model = new Edit_Model(view, modal, icons);
+            List<InfoIcons> infoIcons = new List<InfoIcons>();
+            infoIcons = db.InfoIcons.Where(x => x.IdHelpModal == modal.Id).ToList();
+
+            Edit_Model model = new Edit_Model(view, modal, icons, infoIcons);
             return View(model);
         }
 
@@ -74,7 +77,7 @@ namespace ModalHelp.Controllers
                     CustomError = "Ha habido un error al guardar la información de un modal de ayuda",
                     Text = "Excepción: " + e.ToString()
                 };
-                throw;
+                //throw;
             }
             return JsonConvert.SerializeObject(aj);
         }
@@ -92,7 +95,8 @@ namespace ModalHelp.Controllers
                 {
                     Successful = true,
                     CustomError = "",
-                    Text = "Correct"
+                    Text = "Correct",
+                    Data = icon
                 };
             }
             catch (Exception e)
@@ -103,7 +107,72 @@ namespace ModalHelp.Controllers
                     CustomError = "Ha habido un error al guardar un icono",
                     Text = "Excepción: " + e.ToString()
                 };
-                throw;
+                //throw;
+            }
+            return JsonConvert.SerializeObject(aj);
+        }
+
+        public string SaveIconInfo(int idModal, int idIcon, string info)
+        {
+            AjaxData aj;
+            try
+            {
+                InfoIcons iconInfo = new InfoIcons(idModal, idIcon, info);
+                db.InfoIcons.Add(iconInfo);
+
+                db.SaveChanges();
+
+                Icons icon = new Icons();
+                icon = db.Icons.FirstOrDefault(x => x.Id == idIcon);
+
+                IconInfo_Model model = new IconInfo_Model(iconInfo, icon);
+                
+                aj = new AjaxData()
+                {
+                    Successful = true,
+                    CustomError = "",
+                    Text = "Correct",
+                    Data = model
+                };
+            }
+            catch (Exception e)
+            {
+                aj = new AjaxData()
+                {
+                    Successful = false,
+                    CustomError = "Ha habido un error al guardar información de un icono",
+                    Text = "Excepción: " + e.ToString()
+                };
+                //throw;
+            }
+            return JsonConvert.SerializeObject(aj);
+        }
+
+        public string DeleteIconInfo(int id)
+        {
+            AjaxData aj;
+            try
+            {
+                InfoIcons infoIcon = db.InfoIcons.FirstOrDefault(x => x.Id == id);
+                db.InfoIcons.Remove(infoIcon);
+                db.SaveChanges();
+
+                aj = new AjaxData()
+                {
+                    Successful = true,
+                    CustomError = "",
+                    Text = "Correct",
+                };
+            }
+            catch (Exception e)
+            {
+                aj = new AjaxData()
+                {
+                    Successful = false,
+                    CustomError = "Ha habido un error al guardar información de un icono",
+                    Text = "Excepción: " + e.ToString()
+                };
+                //throw;
             }
             return JsonConvert.SerializeObject(aj);
         }

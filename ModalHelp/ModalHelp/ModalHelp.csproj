@@ -142,6 +142,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AjaxData.cs" />
+    <Compile Include="Models\EditModal\IconInfo_Model.cs" />
     <Compile Include="Models\EditModal\Edit_Model.cs" />
     <Compile Include="Models\ModalsManagement\View_Model.cs" />
     <Compile Include="Models\ModalsManagement\Module_Model.cs" />

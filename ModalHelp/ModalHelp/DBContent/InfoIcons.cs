@@ -19,5 +19,15 @@ namespace ModalHelp.DBContent
 
         [Required]
         public string Info { get; set; }
+
+
+        public InfoIcons() { }
+
+        public InfoIcons(int id, int icon, string info)
+        {
+            IdHelpModal = id;
+            IdIcon = icon;
+            Info = info;
+        }
     }
 }

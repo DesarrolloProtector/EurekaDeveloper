@@ -14,7 +14,7 @@ namespace ModalHelp.Controllers
     {
         EurekaDeveloperDB db = new EurekaDeveloperDB();
 
-        // MODULOS
+        // MODULOS //
         public ActionResult ModulesList()
         {
             try
